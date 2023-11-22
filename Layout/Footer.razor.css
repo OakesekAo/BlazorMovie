@@ -1,0 +1,16 @@
+﻿.footerStyle{
+    background-color: darkslategrey;
+    color:var(--light-color);
+}
+
+.footerStyle a {
+        color: aliceblue;
+    }
+.footerStyle a:hover {
+        color: yellow;
+    }
+
+.footerStyle .bi{
+    font-size: 1.5rem;
+    padding-inline-start: 0.5rem;
+}

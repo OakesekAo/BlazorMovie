@@ -1,0 +1,7 @@
+﻿.navStyle {
+    background-color: black;
+}
+
+.navbar-nav{
+    --bs-navbar-hover-color: light-gray;
+}
