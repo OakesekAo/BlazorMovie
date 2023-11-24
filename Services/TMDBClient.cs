@@ -1,4 +1,7 @@
-﻿namespace BlazorMovie.Services
+﻿using BlazorMovie.Models;
+using System.Net.Http.Json;
+
+namespace BlazorMovie.Services
 {
     public class TMDBClient
     {
@@ -13,6 +16,11 @@
 
             string apiKey = config["TMDBKey"] ?? throw new Exception("TMDBKey not found!");
             _httpClient.DefaultRequestHeaders.Authorization = new("Bearer", apiKey);
+        }
+
+        public Task<PopularMoviePagedResponse?> GetPopularMoviesAsync()
+        {
+            return _httpClient.GetFromJsonAsync<PopularMoviePagedResponse>("movie/popular");
         }
 
     }

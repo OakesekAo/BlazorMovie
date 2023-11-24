@@ -1,20 +1,51 @@
-﻿namespace BlazorMovie.Models
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
+
+namespace BlazorMovie.Models
 {
     public class PopularMovie
     {
-        public bool adult { get; set; }
-        public string backdrop_path { get; set; }
-        public int[] genre_ids { get; set; }
-        public int id { get; set; }
-        public string original_language { get; set; }
-        public string original_title { get; set; }
-        public string overview { get; set; }
-        public float popularity { get; set; }
-        public string poster_path { get; set; }
-        public string release_date { get; set; }
-        public string title { get; set; }
-        public bool video { get; set; }
-        public float vote_average { get; set; }
-        public int vote_count { get; set; }
+
+        [JsonPropertyName("adult")]
+        public bool Adult { get; set; }
+
+        [JsonPropertyName("backdrop_path")]
+        public string? BackdropPath { get; set; }
+
+        [JsonPropertyName("genre_ids")]
+        public int[] GenreIds { get; set; } = [];
+
+        [JsonPropertyName("id")]
+        public int Id { get; set; }
+
+        [JsonPropertyName("original_language")]
+        public string OriginalLanguage { get; set; } = string.Empty;
+
+        [JsonPropertyName("original_title")]
+        public string? OriginalTitle { get; set; }
+
+        [JsonPropertyName("overview")]
+        public string Overview { get; set; } = string.Empty;
+
+        [JsonPropertyName("popularity")]
+        public float Popularity { get; set; }
+
+        [JsonPropertyName("poster_path")]
+        public string PosterPath { get; set; } = string.Empty;
+
+        [JsonPropertyName("release_date")]
+        public string ReleaseDate { get; set; } = string.Empty;
+
+        [JsonPropertyName("title")]
+        public string Title { get; set; } = string.Empty;
+
+        [JsonPropertyName("video")]
+        public bool Video { get; set; }
+
+        [JsonPropertyName("vote_average")]
+        public float VoteAverage { get; set; }
+
+        [JsonPropertyName("vote_count")]
+        public int VoteCount { get; set; }
     }
 }
