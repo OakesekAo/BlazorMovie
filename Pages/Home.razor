@@ -3,16 +3,20 @@
 @using BlazorMovie.Services
 @inject TMDBClient TMDB
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Blazor Movie: Popular Movies</PageTitle>
 
-<div class="h-100 d-flex flex-column justify-content-center align-items-center">
+<div class="container-xxl py 3">
+    <div>
+    <h1 class="display-6">
+        <spoan class="text-danger">
+            <i class="bi bi-fire"></i>
+        </spoan>
+        Popular Movies
+    </h1>
+    </div>
+<div class="d-flex flex-column flex-md-row justify-content-betweeen my-3">
 
-    <h1>Hello, world!</h1>
 
-    Welcome to your new app.
-
-    <img src="/icon-192.png" class="w-25" />
-    <button class="btn btn-primary mt-3">Primary button</button>
 
     <div class="row row-cols-2 row-cols-lg-4 row-cols-xl-5 justify-content-center justify-content-md-start">
     @if(movies is not null)
@@ -20,9 +24,7 @@
             @foreach(PopularMovie movie in movies.Results)
             {
                 <div class="col">
-                    <div class="">
-
-                    </div>
+                    <MovieCard Movie="movie"/>
                 </div>
 
             }
@@ -31,7 +33,8 @@
         {
             for (int i = 0; i < 10; i++)
             {
-                <div class="col">
+                    <div class="col">
+                        <MovieCard />
 
                 </div>
             }
@@ -39,6 +42,8 @@
     </div>
 
 </div>
+</div>
+
 
 @code {
     private PopularMoviePagedResponse? movies;
