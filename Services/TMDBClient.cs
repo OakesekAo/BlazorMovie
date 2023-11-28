@@ -1,4 +1,5 @@
 ﻿using BlazorMovie.Models;
+using BlazorMovie.Pages;
 using System.Net.Http.Json;
 
 namespace BlazorMovie.Services
@@ -21,6 +22,15 @@ namespace BlazorMovie.Services
         public Task<PopularMoviePagedResponse?> GetPopularMoviesAsync()
         {
             return _httpClient.GetFromJsonAsync<PopularMoviePagedResponse>("movie/popular");
+        }
+
+        public Task<MovieDetails?> GetMovieDetailsAaync(int id)
+        {
+            return _httpClient.GetFromJsonAsync<MovieDetails>($"movie/{id}");
+        }
+        public Task<ActorDetails?> GetActorDetailsAsync(int id)
+        {
+            return _httpClient.GetFromJsonAsync<ActorDetails>($"person/{id}");
         }
 
     }
