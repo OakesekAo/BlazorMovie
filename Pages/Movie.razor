@@ -2,15 +2,36 @@
 @using BlazorMovie.Services
 @inject TMDBClient TMDB
 
-<h3>Movie</h3>
+
 @if(movieDetails is null)
 {
-    <p><em>Loading...</em></p>
+    <p><em>Loading the movie...</em></p>
 }
 else
 {
-    <h1>@movieDetails.Title</h1>
-    <p>@movieDetails.Overview</p>
+    <PageTitle>@movieDetails.Title</PageTitle>
+
+    <!-- Page Banner-->
+     <div class="hero-bg" style="@($"--bg-img: url(https://image.tmdb.org/t/p/original/{movieDetails.BackdropPath})")">
+
+
+
+        <div class="hero-container">
+            <div class="container-xxl d-flex flex-column flex-md-row">
+                <!-- title content goes here-->
+                <div class="flex-grow-1 d-flex align-items-center justify-content-center justify-content-md-end">
+                    <div class="title-container text-center text-md-end">
+                        <h1 class="text-light">@movieDetails.Title</h1>
+                        <h2 class="text-light">@movieDetails.Tagline</h2>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
     
 }
 
