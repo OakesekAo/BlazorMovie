@@ -1,14 +1,14 @@
-﻿.footerStyle{
-    background-color: darkslategrey;
-    color:var(--light-color);
+﻿.footerStyle {
+    background-color: var(--cf-theme-800);
+    color: var(--cf-theme-150);
 }
 
-.footerStyle a {
-        color: aliceblue;
+    .footerStyle a {
+        color: var(--cf-theme-200);
     }
-.footerStyle a:hover {
-        color: yellow;
-    }
+        .footerStyle a:hover {
+            color: var(--cf-theme-150);
+        }
 
 .footerStyle .bi{
     font-size: 1.5rem;

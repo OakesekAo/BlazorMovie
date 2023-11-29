@@ -8,13 +8,13 @@
     --light-color: #deeefb;
 
     /* text styles */
-    --title-color: var(--dark-color);
+    --title-color: var(--cf-dark-color);
     --font-size: 1rem;
 }
 
 html, body {
-    font-family: var(--body-font);
-    font-size: var(--font-size);
+    font-family: var(--cf-body-font);
+    font-size: var(--cf-font-size);
     height: 100%;
     }
 
@@ -23,7 +23,7 @@ html, body {
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-    font-family: var(--title-font);
+    font-family: var(--cf-title-font);
 }
 
 h1:focus{
