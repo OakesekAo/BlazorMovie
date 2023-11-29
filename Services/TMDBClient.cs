@@ -15,7 +15,8 @@ namespace BlazorMovie.Services
             _httpClient.BaseAddress = new Uri("https://api.themoviedb.org/3/");
             _httpClient.DefaultRequestHeaders.Accept.Add(new("application/json"));
 
-            string apiKey = config["TMDBKey"] ?? throw new Exception("TMDBKey not found!");
+            string apiKey = Environment.GetEnvironmentVariable("TMDBKey") ?? config["TMDBKey"] ?? throw new Exception("TMDBKey not found!");
+
             _httpClient.DefaultRequestHeaders.Authorization = new("Bearer", apiKey);
         }
 
