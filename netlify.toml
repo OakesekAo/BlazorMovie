@@ -1,6 +1,6 @@
 [build]
   command = "dotnet publish -c Release -o release"
-  environment = { NETCORE_VERSION = "8.0" } # Use the version that supports .NET 8.0
+  environment = { DOTNET_VERSION = "8.0" } # Use the version that supports .NET 8.0
 
 
 [[redirects]]
