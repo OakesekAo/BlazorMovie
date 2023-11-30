@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "BlazorMovie",
   "resources": {
-    "hash": "sha256-1qZFj3BTgRUC9zc4xkAK7jTPvtYW8KQcJZGxcRyUpuc=",
+    "hash": "sha256-hUjIiheqhX2BjE41t+1YIEii6mhD0e/ZuZfpHy2Xr2I=",
     "jsModuleNative": {
       "dotnet.native.8.0.0.lw2db75e83.js": "sha256-LjLDIz9+J7uuiwMlQ4HbNx2BnSpphOtO2MwkoI28vdI="
     },
@@ -17,7 +17,7 @@
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
     "assembly": {
-      "BlazorMovie.wasm": "sha256-/3Q4th7rj+x7KHFl/+5wQh0Ymz2FahzUcR7rlW764SY=",
+      "BlazorMovie.wasm": "sha256-l6+DSaQ2esyl6DcnHK6NTDFCDXTklXpEsbQoKAGJCi4=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-h5Vinm2oAPaykOfhZFDtdiSsCL9ogYO/JkP4MVliDrM=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-ivj7kxN8rrhTm1UV0H7dhsOewu6rhATFU2ZAG/YKLvA=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-YC7DoLB+U32ce/z5zbC8uHmlwzJEuMTrIq6OmR9tfMk=",

@@ -71,3 +71,20 @@
         margin-top: 2rem;
     }
 }
+/* /publish/Layout/Footer.razor.rz.scp.css */
+.footerStyle[b-l2mt3yciyu] {
+    background-color: var(--cf-theme-800);
+    color: var(--cf-theme-150);
+}
+
+    .footerStyle a[b-l2mt3yciyu] {
+        color: var(--cf-theme-200);
+    }
+        .footerStyle a:hover[b-l2mt3yciyu] {
+            color: var(--cf-theme-150);
+        }
+
+.footerStyle .bi[b-l2mt3yciyu]{
+    font-size: 1.5rem;
+    padding-inline-start: 0.5rem;
+}
