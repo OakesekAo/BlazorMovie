@@ -17,61 +17,336 @@
     </div>
     <div class="d-flex flex-column flex-md-row justify-content-betweeen my-3">
 
-
-
-        <div class="row row-cols-2 row-cols-lg-4 row-cols-xl-5 justify-content-center justify-content-md-start g-3">
-            @if (movies is not null)
-            {
-                @foreach (PopularMovie movie in movies.Results)
+        <div id="tmdbCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                @if (popMovies is not null)
                 {
-                    <div class="col">
-                        <MovieCard Movie="movie" />
-                    </div>
-
+                    @for (int i = 0; i < 4; i++)
+                    {
+                        var isActive = (i == 0) ? "active" : "";
+                            <div class="carousel-item @isActive">
+                                <div class="d-none d-lg-block">
+                                    <div class="cards-wrapper">
+                                        <!-- Hidden on smaller screens, visible on large screens -->
+                                        @foreach (PopularMovie movie in popMovies.Results.Skip(i * 5).Take(5))
+                                        {
+                                            <MovieCard Movie="movie" />
+                                        }
+                                    </div>
+                                </div>
+                                <div class="d-md-none d-lg-none">
+                                    <div class="cards-wrapper">
+                                        <!-- Hidden on medium and larger screens, visible on smaller screens -->
+                                        @foreach (PopularMovie movie in popMovies.Results.Skip(i * 1).Take(1))
+                                        {
+                                            <MovieCard Movie="movie" />
+                                        }
+                                    </div>
+                                </div>
+                            <div class="d-md-block d-lg-none d-sm-none">
+                                    <div class="cards-wrapper">
+                                        <!-- Hidden on larger screens, visible on medium screens -->
+                                        @foreach (PopularMovie movie in popMovies.Results.Skip(i * 3).Take(3))
+                                        {
+                                            <MovieCard Movie="movie" />
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                    }
                 }
-            }
-            else
-            {
-                for (int i = 0; i < 10; i++)
+                else
                 {
-                    <div class="col">
-                        <MovieCard />
+                    for (int i = 0; i < 10; i++)
+                    {
+                        var isActive = (i == 0) ? "active" : "";
+                        <div class="carousel-item @isActive">
+                            <div class="cards-wrapper">
+                            <MovieCard />
 
-                    </div>
+                                </div>
+                            </div>
+                    }
                 }
-            }
+            </div>
+            <a class="carousel-control-prev" href="#tmdbCarousel" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#tmdbCarousel" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </a>
         </div>
+
+
 
     </div>
-    @if (movies?.TotalPages > 1)
-    {
-        <div class="my-3">
-            <Paginator CurrentPage="movies.Page"
-                       TotalPages="movies.TotalPages > 500 ? 500 : movies.TotalPages" 
-                       OnPageChange="GetPage"/>
+
+    <div>
+        <h1 class="display-6">
+            <spoan class="text-danger">
+                <i class="bi bi-fire"></i>
+            </spoan>
+            Top Rated Movies
+        </h1>
+    </div>
+    <div class="d-flex flex-column flex-md-row justify-content-betweeen my-3">
+
+        <div id="topCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                @if (topMovies is not null)
+                {
+                    @for (int i = 0; i < 4; i++)
+                    {
+                        var isActive = (i == 0) ? "active" : "";
+                        <div class="carousel-item @isActive">
+                            <div class="d-none d-lg-block">
+                                <div class="cards-wrapper">
+                                    <!-- Hidden on smaller screens, visible on large screens -->
+                                    @foreach (PopularMovie movie in topMovies.Results.Skip(i * 5).Take(5))
+                                    {
+                                        <MovieCard Movie="movie" />
+                                    }
+                                </div>
+                            </div>
+                            <div class="d-md-none d-lg-none">
+                                <div class="cards-wrapper">
+                                    <!-- Hidden on medium and larger screens, visible on smaller screens -->
+                                    @foreach (PopularMovie movie in topMovies.Results.Skip(i * 1).Take(1))
+                                    {
+                                        <MovieCard Movie="movie" />
+                                    }
+                                </div>
+                            </div>
+                            <div class="d-md-block d-lg-none d-sm-none">
+                                <div class="cards-wrapper">
+                                    <!-- Hidden on larger screens, visible on medium screens -->
+                                    @foreach (PopularMovie movie in topMovies.Results.Skip(i * 3).Take(3))
+                                    {
+                                        <MovieCard Movie="movie" />
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < 10; i++)
+                    {
+                        var isActive = (i == 0) ? "active" : "";
+                        <div class="carousel-item @isActive">
+                            <div class="cards-wrapper">
+                                <MovieCard />
+
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+            <a class="carousel-control-prev" href="#topCarousel" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#topCarousel" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </a>
         </div>
-    }
+
+
+
+    </div>
+
+    <div>
+        <h1 class="display-6">
+            <spoan class="text-danger">
+                <i class="bi bi-fire"></i>
+            </spoan>
+            Upcoming Movies
+        </h1>
+    </div>
+    <div class="d-flex flex-column flex-md-row justify-content-betweeen my-3">
+
+        <div id="upCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                @if (upMovies is not null)
+                {
+                    @for (int i = 0; i < 4; i++)
+                    {
+                        var isActive = (i == 0) ? "active" : "";
+                        <div class="carousel-item @isActive">
+                            <div class="d-none d-lg-block">
+                                <div class="cards-wrapper">
+                                    <!-- Hidden on smaller screens, visible on large screens -->
+                                    @foreach (PopularMovie movie in upMovies.Results.Skip(i * 5).Take(5))
+                                    {
+                                        <MovieCard Movie="movie" />
+                                    }
+                                </div>
+                            </div>
+                            <div class="d-md-none d-lg-none">
+                                <div class="cards-wrapper">
+                                    <!-- Hidden on medium and larger screens, visible on smaller screens -->
+                                    @foreach (PopularMovie movie in upMovies.Results.Skip(i * 1).Take(1))
+                                    {
+                                        <MovieCard Movie="movie" />
+                                    }
+                                </div>
+                            </div>
+                            <div class="d-md-block d-lg-none d-sm-none">
+                                <div class="cards-wrapper">
+                                    <!-- Hidden on larger screens, visible on medium screens -->
+                                    @foreach (PopularMovie movie in upMovies.Results.Skip(i * 3).Take(3))
+                                    {
+                                        <MovieCard Movie="movie" />
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < 10; i++)
+                    {
+                        var isActive = (i == 0) ? "active" : "";
+                        <div class="carousel-item @isActive">
+                            <div class="cards-wrapper">
+                                <MovieCard />
+
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+            <a class="carousel-control-prev" href="#upCarousel" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#upCarousel" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </a>
+        </div>
+
+
+
+    </div>
+
+    <div>
+        <h1 class="display-6">
+            <spoan class="text-danger">
+                <i class="bi bi-fire"></i>
+            </spoan>
+            Now Playing Movies
+        </h1>
+    </div>
+    <div class="d-flex flex-column flex-md-row justify-content-betweeen my-3">
+
+        <div id="nowCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                @if (nowMovies is not null)
+                {
+                    @for (int i = 0; i < 4; i++)
+                    {
+                        var isActive = (i == 0) ? "active" : "";
+                        <div class="carousel-item @isActive">
+                            <div class="d-none d-lg-block">
+                                <div class="cards-wrapper">
+                                    <!-- Hidden on smaller screens, visible on large screens -->
+                                    @foreach (PopularMovie movie in nowMovies.Results.Skip(i * 5).Take(5))
+                                    {
+                                        <MovieCard Movie="movie" />
+                                    }
+                                </div>
+                            </div>
+                            <div class="d-md-none d-lg-none">
+                                <div class="cards-wrapper">
+                                    <!-- Hidden on medium and larger screens, visible on smaller screens -->
+                                    @foreach (PopularMovie movie in nowMovies.Results.Skip(i * 1).Take(1))
+                                    {
+                                        <MovieCard Movie="movie" />
+                                    }
+                                </div>
+                            </div>
+                            <div class="d-md-block d-lg-none d-sm-none">
+                                <div class="cards-wrapper">
+                                    <!-- Hidden on larger screens, visible on medium screens -->
+                                    @foreach (PopularMovie movie in nowMovies.Results.Skip(i * 3).Take(3))
+                                    {
+                                        <MovieCard Movie="movie" />
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < 10; i++)
+                    {
+                        var isActive = (i == 0) ? "active" : "";
+                        <div class="carousel-item @isActive">
+                            <div class="cards-wrapper">
+                                <MovieCard />
+
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+            <a class="carousel-control-prev" href="#nowCarousel" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#nowCarousel" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </a>
+        </div>
+
+
+
+    </div>
+
 </div>
 
 
 @code {
-    private PopularMoviePagedResponse? movies;
+
+
+    private List<PopularMoviePagedResponse> tmdbMovieCollections = new List<PopularMoviePagedResponse>();
+
+    private PopularMoviePagedResponse? popMovies;
+    private PopularMoviePagedResponse? topMovies;
+    private PopularMoviePagedResponse? upMovies;
+    private PopularMoviePagedResponse? nowMovies;
 
     [SupplyParameterFromQuery]
     public int Page { get; set; } = 1;
 
     protected override async Task OnParametersSetAsync()
     {
+
         if (Page < 1) Page = 1;
         else if (Page > 500) Page = 500;
 
-        movies = await TMDB.GetPopularMoviesAsync(Page);
+        popMovies = await TMDB.GetPopularMoviesAsync(Page);
+        topMovies = await TMDB.GetTopRatedMoviesAsync(Page);
+        upMovies = await TMDB.GetUpcomingMoviesAsync(Page);
+        nowMovies = await TMDB.GetNowPlayingMoviesAsync(Page);
+
+
+        // tmdbMovieCollections.Add(nowMovies);
+        // tmdbMovieCollections.Add(popMovies);
+        // tmdbMovieCollections.Add(topMovies);
+        // tmdbMovieCollections.Add(upMovies);
+
+
     }
 
-    private void GetPage(int pageNum)
-    {
-        string url = Nav.GetUriWithQueryParameter("page", pageNum);
-        Nav.NavigateTo(url);
-    }
+
 
 }

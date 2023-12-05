@@ -1,3 +1,8 @@
+/* /Components/UI/MovieCard.razor.rz.scp.css */
+@media (min-width: 768px) {
+    .card img[b-e2dxs9shoo] {
+    }
+}
 /* /Components/UI/Paginator.razor.rz.scp.css */
 .rounded-pill[b-om2c93fjcg] {
     aspect-ratio: 1;
@@ -27,6 +32,27 @@
 .navbar-nav[b-jznusczpuz] {
     --bs-navbar-hover-color: var(--cf-theme-150);
 }
+/* /Pages/Home.razor.rz.scp.css */
+.cards-wrapper[b-11idgqnwg0] {
+    display: flex;
+    justify-content: center;
+}
+
+
+.carousel-inner[b-11idgqnwg0] {
+    padding: 1em;
+}
+
+.carousel-control-prev[b-11idgqnwg0],
+.carousel-control-next[b-11idgqnwg0] {
+    background-color: #e1e1e1;
+    width: 5vh;
+    height: 5vh;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 /* /Pages/Movie.razor.rz.scp.css */
 .hero-bg[b-yzx0y2qb41] {
     background-image: var(--bg-img);
